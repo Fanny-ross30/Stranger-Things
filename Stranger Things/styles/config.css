@@ -1,0 +1,209 @@
+/* Configuración y variables globales para Stranger Things */
+
+/* Variables CSS personalizadas */
+:root {
+    /* Colores principales */
+    --primary-red: #dc2626;
+    --secondary-red: #ef4444;
+    --dark-red: #991b1b;
+    --light-red: #fca5a5;
+    
+    /* Escala de grises */
+    --black: #000000;
+    --dark-gray: #1a1a1a;
+    --medium-gray: #2d2d2d;
+    --light-gray: #404040;
+    --lighter-gray: #6b7280;
+    
+    /* Azules */
+    --blue-accent: #4b5563;
+    --light-blue: #6b7280;
+    --cyan: #6b7280;
+    --dark-blue: #1e3a8a;
+    
+    /* Texto */
+    --white: #ffffff;
+    --text-light: #f3f4f6;
+    --text-muted: #9ca3af;
+    --text-dark: #374151;
+    
+    /* Efectos de glow */
+    --glow-red: #ff0000;
+    --glow-blue: #6b7280;
+    --glow-white: #ffffff;
+    
+    /* Sombras */
+    --shadow-red: rgba(220, 38, 38, 0.3);
+    --shadow-blue: rgba(59, 130, 246, 0.3);
+    --shadow-dark: rgba(0, 0, 0, 0.5);
+    
+    /* Transiciones */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Bordes */
+    --border-radius: 15px;
+    --border-radius-small: 8px;
+    --border-radius-large: 25px;
+    
+    /* Espaciado */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-xxl: 4rem;
+    
+    /* Tamaños de fuente */
+    --font-xs: 0.75rem;
+    --font-sm: 0.875rem;
+    --font-base: 1rem;
+    --font-lg: 1.125rem;
+    --font-xl: 1.25rem;
+    --font-2xl: 1.5rem;
+    --font-3xl: 1.875rem;
+    --font-4xl: 2.25rem;
+    --font-5xl: 3rem;
+    --font-6xl: 4rem;
+    
+    /* Breakpoints */
+    --mobile: 480px;
+    --tablet: 768px;
+    --desktop: 1024px;
+    --wide: 1200px;
+}
+
+/* Fuentes personalizadas */
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Configuración de fuentes */
+.font-creepster {
+    font-family: 'Creepster', cursive;
+}
+
+.font-orbitron {
+    font-family: 'Orbitron', monospace;
+}
+
+.font-roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Clases de utilidad para colores */
+.text-primary-red { color: var(--primary-red); }
+.text-light-blue { color: var(--light-blue); }
+.text-cyan { color: var(--cyan); }
+.text-white { color: var(--white); }
+.text-muted { color: var(--text-muted); }
+
+.bg-dark { background-color: var(--dark-gray); }
+.bg-black { background-color: var(--black); }
+.bg-medium-gray { background-color: var(--medium-gray); }
+
+/* Clases de utilidad para efectos */
+.glow-red {
+    text-shadow: 0 0 10px var(--glow-red);
+}
+
+.glow-blue {
+    text-shadow: 0 0 10px var(--glow-blue);
+}
+
+.glow-white {
+    text-shadow: 0 0 10px var(--glow-white);
+}
+
+/* Clases de utilidad para espaciado */
+.mb-xs { margin-bottom: var(--spacing-xs); }
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+
+.p-xs { padding: var(--spacing-xs); }
+.p-sm { padding: var(--spacing-sm); }
+.p-md { padding: var(--spacing-md); }
+.p-lg { padding: var(--spacing-lg); }
+.p-xl { padding: var(--spacing-xl); }
+
+/* Clases de utilidad para transiciones */
+.transition-fast { transition: var(--transition-fast); }
+.transition-normal { transition: var(--transition-normal); }
+.transition-slow { transition: var(--transition-slow); }
+
+/* Clases de utilidad para bordes */
+.rounded { border-radius: var(--border-radius); }
+.rounded-sm { border-radius: var(--border-radius-small); }
+.rounded-lg { border-radius: var(--border-radius-large); }
+
+/* Media queries responsivas */
+@media (max-width: 768px) {
+    :root {
+        --font-6xl: 2.5rem;
+        --font-5xl: 2rem;
+        --font-4xl: 1.75rem;
+        --font-3xl: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --font-6xl: 2rem;
+        --font-5xl: 1.75rem;
+        --font-4xl: 1.5rem;
+        --font-3xl: 1.25rem;
+        --spacing-xl: 2rem;
+        --spacing-xxl: 3rem;
+    }
+}
+
+/* Configuración de scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Configuración de selección de texto */
+::selection {
+    background-color: var(--primary-red);
+    color: var(--white);
+}
+
+::-moz-selection {
+    background-color: var(--primary-red);
+    color: var(--white);
+}
+
+/* Configuración de scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-red);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-red);
+}
+
+/* Configuración de focus para accesibilidad */
+*:focus {
+    outline: 2px solid var(--light-blue);
+    outline-offset: 2px;
+}
+
+/* Configuración de animaciones reducidas para usuarios que las prefieren */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+

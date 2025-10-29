@@ -1,0 +1,484 @@
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-red: #991b1b;
+    --secondary-red: #ef4444;
+    --dark-red: #991b1b;
+    --black: #000000;
+    --dark-gray: #1a1a1a;
+    --medium-gray: #2d2d2d;
+    --light-gray: #404040;
+    --blue-accent: #4b5563;
+    --light-blue: #6b7280;
+    --white: #ffffff;
+    --text-light: #f3f4f6;
+    --text-muted: #9ca3af;
+    --glow-red: #dc2626;
+    --glow-blue: #6b7280;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 50%, var(--black) 100%);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Fondo estático sin animaciones */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(153, 27, 27, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(75, 85, 99, 0.05) 0%, transparent 50%);
+    z-index: -1;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navegación */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--primary-red);
+    z-index: 1000;
+    padding: 15px 0;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-family: 'Creepster', cursive;
+    font-size: 2rem;
+    color: var(--primary-red);
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, var(--primary-red), var(--blue-accent));
+    border-radius: 25px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.nav-links a:hover::before {
+    opacity: 1;
+}
+
+.nav-links a:hover {
+    color: var(--white);
+    text-shadow: 0 0 10px var(--white);
+}
+
+/* Sección Hero */
+.hero {
+    padding: 120px 0 80px;
+    text-align: center;
+    position: relative;
+}
+
+.hero-title {
+    font-family: 'Creepster', cursive;
+    font-size: 4rem;
+    color: var(--primary-red);
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+
+
+.hero-subtitle {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+.hero-image {
+    max-width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 3px solid var(--primary-red);
+    box-shadow: 0 0 30px rgba(220, 38, 38, 0.5);
+    transition: all 0.3s ease;
+}
+
+.hero-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 50px rgba(220, 38, 38, 0.8);
+}
+
+/* Secciones generales */
+.section {
+    padding: 80px 0;
+    position: relative;
+}
+
+.section h2 {
+    font-family: 'Orbitron', monospace;
+    font-size: 3rem;
+    color: var(--primary-red);
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+}
+
+/* Grid de actores */
+.actors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.actor-card {
+    background: linear-gradient(145deg, var(--dark-gray), var(--medium-gray));
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.actor-card:hover {
+    border-color: var(--primary-red);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(220, 38, 38, 0.3);
+}
+
+.actor-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-red);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.actor-card:hover .actor-photo {
+    border-color: var(--light-blue);
+    box-shadow: 0 0 20px var(--glow-blue);
+}
+
+.actor-name {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.4rem;
+    color: var(--primary-red);
+    margin-bottom: 10px;
+}
+
+.actor-character {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.actor-description {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Temporadas */
+.seasons-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.season-card {
+    background: linear-gradient(145deg, var(--dark-gray), var(--medium-gray));
+    border-radius: 15px;
+    padding: 30px;
+    border-left: 5px solid var(--primary-red);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.season-card:hover {
+    transform: translateX(10px);
+    box-shadow: 0 15px 35px rgba(220, 38, 38, 0.2);
+    border-left-color: var(--light-blue);
+}
+
+.season-number {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    color: var(--primary-red);
+    margin-bottom: 10px;
+}
+
+.season-year {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 5px;
+}
+
+.season-episodes {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.season-description {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Curiosidades */
+.curiosities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.curiosity-card {
+    background: linear-gradient(145deg, var(--dark-gray), var(--medium-gray));
+    border-radius: 15px;
+    padding: 25px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.curiosity-card:hover {
+    border-color: var(--light-blue);
+    transform: scale(1.02);
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.2);
+}
+
+.curiosity-card h3 {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.curiosity-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Galería */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 2px solid var(--primary-red);
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover img {
+    border-color: var(--light-blue);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, var(--black), var(--dark-gray));
+    padding: 40px 0;
+    text-align: center;
+    border-top: 2px solid var(--primary-red);
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.social-links {
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    display: inline-block;
+    font-size: 2rem;
+    margin: 0 15px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px var(--glow-red));
+}
+
+.footer-text {
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.signature {
+    color: var(--primary-red);
+    font-family: 'Orbitron', monospace;
+    font-weight: 600;
+}
+
+/* Animaciones */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .section h2 {
+        font-size: 2rem;
+    }
+    
+    .actors-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .seasons-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .curiosities {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+}
+
